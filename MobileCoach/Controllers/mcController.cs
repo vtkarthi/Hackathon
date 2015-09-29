@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace MobileCoach.Controllers
+namespace VzSoftphone.Controllers
 {
     public class mcController : ApiController
     {
