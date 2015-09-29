@@ -48,16 +48,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Alert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Alert.Designer.cs">
+      <DependentUpon>Alert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caller.Designer.cs">
+      <DependentUpon>Caller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Softphone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Softphone.Designer.cs">
+      <DependentUpon>Softphone.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Alert.resx">
+      <DependentUpon>Alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caller.resx">
+      <DependentUpon>Caller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Softphone.resx">
+      <DependentUpon>Softphone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

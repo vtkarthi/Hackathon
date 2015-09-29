@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SoftPhone
 {
-    public partial class Form1 : Form
+    public partial class Caller : Form
     {
-        public Form1()
+        public Caller()
         {
             InitializeComponent();
         }
