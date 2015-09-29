@@ -5,6 +5,17 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPhone", "SoftPhone\SoftPhone.csproj", "{E2239291-CCE2-477C-87E5-364A623E14A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VzSoftphone", "MobileCoach\VzSoftphone.csproj", "{E4A3C0F8-2733-4941-B614-2DD25A986F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VzSoftphone.Tests", "MobileCoach.Tests\VzSoftphone.Tests.csproj", "{D7DAD405-A435-4B6F-8772-596C13AA8185}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1B865FA9-9647-48D1-A53F-0B9C4A12E74F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +26,14 @@ Global
 		{E2239291-CCE2-477C-87E5-364A623E14A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2239291-CCE2-477C-87E5-364A623E14A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2239291-CCE2-477C-87E5-364A623E14A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
