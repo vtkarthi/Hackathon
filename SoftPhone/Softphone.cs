@@ -70,40 +70,49 @@ namespace SoftPhone
 
         void _timer_Tick(object sender, EventArgs e)
         {
-            var timeSinceStartTime = DateTime.Now - _startTime;
-            timeSinceStartTime = new TimeSpan(timeSinceStartTime.Hours,
-                                              timeSinceStartTime.Minutes,
-                                              timeSinceStartTime.Seconds);
-
-            _currentElapsedTime = timeSinceStartTime + _totalElapsedTime;
-
-            _totalElapsedTimeDisplay.Text = _currentElapsedTime.ToString();
-            _currentElapsedTimeDisplay.Text = timeSinceStartTime.ToString();
-            if (_isHoldOn)
+            try
             {
-                if (oAlrt == null)
+                var timeSinceStartTime = DateTime.Now - _startTime;
+                timeSinceStartTime = new TimeSpan(timeSinceStartTime.Hours,
+                                                  timeSinceStartTime.Minutes,
+                                                  timeSinceStartTime.Seconds);
+
+                _currentElapsedTime = timeSinceStartTime + _totalElapsedTime;
+
+                _totalElapsedTimeDisplay.Text = _currentElapsedTime.ToString();
+                _currentElapsedTimeDisplay.Text = timeSinceStartTime.ToString();
+                if (_isHoldOn)
                 {
-                    oAlrt = new Alert();
+                    if (oAlrt == null)
+                    {
+                        oAlrt = new Alert();
+                    }
+                    if (timeSinceStartTime.Seconds == 10)
+                    {
+                        oAlrt.BackColor = Color.Yellow;
+                        oAlrt.Controls["txtAlertMessage"].Text = "Call on hold duration exceeded 10 seconds. Please swap the call to respond customer and extend the call hold !";
+                        oAlrt.Controls["txtAlertMessage"].BackColor = Color.Yellow;
+                        oAlrt.Show();
+                    }
+                    else if (timeSinceStartTime.Seconds == 20)
+                    {
+                        oAlrt.BackColor = Color.Orange;
+                        oAlrt.Controls["txtAlertMessage"].Text = "Call on hold duration exceeded 20 seconds. Please swap the call to respond customer and extend the call hold !";
+                        oAlrt.Controls["txtAlertMessage"].BackColor = Color.Orange;
+                        oAlrt.Show();
+                    }
+                    else if (timeSinceStartTime.Seconds == 30)
+                    {
+                        oAlrt.BackColor = Color.Red;
+                        oAlrt.Controls["txtAlertMessage"].Text = "Call on hold duration exceeded 30 seconds. Please swap the call to respond customer and extend the call hold !";
+                        oAlrt.Controls["txtAlertMessage"].BackColor = Color.Red;
+                        oAlrt.Show();
+                    }
+                    //oAlrt = null;
                 }
-                if (timeSinceStartTime.Seconds == 10)
-                {
-                    oAlrt.BackColor = Color.Yellow;
-                    oAlrt.Controls["txtAlertMessage"].Text = "Call on hold duration exceeded 20 seconds. Please swap the call to customer and extend the call time !";
-                    oAlrt.Show();
-                }
-                else if (timeSinceStartTime.Seconds == 20)
-                {
-                    oAlrt.BackColor = Color.Orange;
-                    oAlrt.Controls["txtAlertMessage"].Text = "Call on hold duration exceeded 40 seconds. Please swap the call to customer and extend the call time !";
-                    oAlrt.Show();
-                }
-                else if (timeSinceStartTime.Seconds == 30)
-                {
-                    oAlrt.BackColor = Color.Red;
-                    oAlrt.Controls["txtAlertMessage"].Text = "Call on hold duration exceeded 60 seconds. Please swap the call to customer and extend the call time !";
-                    oAlrt.Show();
-                }
-                //oAlrt = null;
+            }
+            catch (Exception ex)
+            { 
             }
         }
 

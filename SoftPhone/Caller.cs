@@ -96,6 +96,7 @@ namespace SoftPhone
             oSft.Controls["_totalElapsedTimeDisplay"].Visible = false;
             oSft.Controls["lblonHoldDuration"].Visible = false;
             oSft.Controls["_currentElapsedTimeDisplay"].Visible = false;
+
         }
     }
 }
