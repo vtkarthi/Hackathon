@@ -9,13 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+   <%-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />--%>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/styles.css" />
 
-    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- <link rel="stylesheet" href="css/normalize.css" /> -->
     <script src="js/prefixfree.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -24,12 +25,12 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
-                    <span class="sr-only">Mobile Coach</span>
+                    <span class="sr-only">VZ SoftPhone</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand text-danger" href="#">Mobile Coach</a>
+                <a class="navbar-brand text-danger" href="#">VZ SoftPhone</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-collapsible">
                 <ul class="nav navbar-nav navbar-left">
@@ -48,7 +49,7 @@
 
     <section class="container-fluid" id="section1">
         <div class="v-center">
-            <h1 class="text-center">Mobile Coach</h1>
+            <h1 class="text-center">VZ SoftPhone</h1>
             <h2 class="text-center lato animate slideInDown">Welcome <b>Mr AgentName</b> </h2>
             <p class="text-center">
                 <br>
@@ -78,7 +79,7 @@
 
                                     <!-- Table demo -->
                                     <div class="box-table">
-                                        <table data-fn="contacts" data-url="http://codepen.io/nakome/pen/DnEvr.js"></table>
+                                        <table data-fn="contacts" data-url="http://localhost:50984/api/live"></table>
                                     </div>
                                     <hr>
                                 </div>
@@ -96,160 +97,29 @@
         </div>
         <!--/container-->
     </section>
-
-    <section>
-        <div class="container-fluid v-center">
-            <div class="row">
-                <div class="col-sm-2 col-sm-offset-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2 col-sm-offset-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-6">
-                    <div class="text-center">
-                        <a href="">
-                            <img style="width: 100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                        </a>
-                        <h3 class="text-center"></h3>
-                    </div>
-                </div>
-            </div>
-            <!--/row-->
-        </div>
-    </section>
-
+       
     <section class="container-fluid" id="section3">
-        <h1 class="text-center">A Bootstrap Foundation</h1>
+        <h1 class="text-center">Report</h1>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <h3 class="text-center lato slideInUp animate">That <strong>Doesn't</strong> Have to Look Like Bootstrap.</h3>
+               <%-- <h3 class="text-center lato slideInUp animate">That <strong>Doesn't</strong> Have to Look Like Bootstrap.</h3>
+                <br>--%>
+                
                 <br>
-                <div class="row">
-                    <div class="col-xs-4 col-xs-offset-1">Some brand-tacular designs even have home page content that is taller that 12,000 pixels. That's a lotta content.</div>
-                    <div class="col-xs-2"></div>
-                    <div class="col-xs-4 text-right">Anyhoo, this is just some random blurb of text, and Bootply.com is a playground and code editor for Bootstrap.</div>
-                </div>
-                <br>
-                <p class="text-center">
-                    <img src="//placehold.it/444x222/444/FFF" class="img-responsive thumbnail center-block ">
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="section4">
-        <div class="container v-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center">Make Contact</h1>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="row form-group">
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="">
+                <div class="text-center img-responsive thumbnail center-block " style="border: 10px solid #ddd;">
+                  
+                        <div class="" style="color:black;">
+                             <table data-fn="contacts" data-url="http://localhost:50984/api/all"></table>
                         </div>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" id="middleName" name="firstName" placeholder="Middle Name" required="">
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-5">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                        </div>
-                        <div class="col-sm-5">
-                            <input type="email" class="form-control" name="phone" placeholder="Phone" required="">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-10">
-                            <input type="homepage" class="form-control" placeholder="Website URL" required="">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-10">
-                            <button class="btn btn-default btn-lg pull-right">Contact Us</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 pull-right">
-                    <address>
-                        <strong>Some LLC</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        Newport, RI 94107<br>
-                        P: (123) 456-7890
-           
-                    </address>
-                    <address>
-                        <strong>Email Us</strong><br>
-                        <a href="mailto:#">first.last@example.com</a>
-                    </address>
+                        
+                   
+                   
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
+    
     <div class="scroll-up">
         <a href="#"><i class="fa fa-angle-up"></i></a>
     </div>

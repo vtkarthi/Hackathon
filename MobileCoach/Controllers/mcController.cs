@@ -13,7 +13,8 @@ namespace VzSoftphone.Controllers
     {
        
         [HttpGet]
-        public IHttpActionResult GetAgents(int id)
+        [Route("api/live")]
+        public IHttpActionResult GetAgents()
         {
 
 
@@ -27,6 +28,7 @@ namespace VzSoftphone.Controllers
                     // Check is the reader has any rows at all before starting to read.
                     if (reader.HasRows)
                     {
+                        int pic = 1;
                         // Read advances to the next row.
                         while (reader.Read())
                         {
@@ -35,7 +37,49 @@ namespace VzSoftphone.Controllers
                             p.AgentId = reader.GetInt32(reader.GetOrdinal("AgentId"));
                            DateTime dSt= p.StatusTimestamp = reader.GetDateTime(reader.GetOrdinal("StatusTimestamp"));
                            p.Duration =(DateTime.Now - dSt).ToString();
+                           p.photo = "a" + ((++pic % 4)+1) + ".jpg";
                            liCall.Add(p);
+                        }
+                    }
+                }
+            }
+
+            if (liCall == null)
+            {
+                return NotFound();
+            }
+            return Ok(liCall);
+        }
+
+        [HttpGet]
+        [Route("api/all")]
+        public IHttpActionResult GetReport()
+        {
+
+
+            List<call> liCall = new List<call>();
+            using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM AgentRealtimeInfo", connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // Check is the reader has any rows at all before starting to read.
+                    if (reader.HasRows)
+                    {
+                        int pic = 1;
+                        // Read advances to the next row.
+                        while (reader.Read())
+                        {
+                            call p = new call();
+                            // To avoid unexpected bugs access columns by name.
+                            p.AgentRealtimeInfoId = reader.GetInt32(reader.GetOrdinal("AgentRealtimeInfoId"));
+                            p.AgentId = reader.GetInt32(reader.GetOrdinal("AgentId"));
+                            p.AgentStatus = reader.GetString(reader.GetOrdinal("AgentStatus"));
+
+                            p.StatusTimestamp = reader.GetDateTime(reader.GetOrdinal("StatusTimestamp"));
+
+                            liCall.Add(p);
                         }
                     }
                 }

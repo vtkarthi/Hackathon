@@ -7,11 +7,12 @@ namespace VzSoftphone.Models
 {
     public class call
     {
-        //public int AgentRealtimeInfoId { get; set; }
+        public int AgentRealtimeInfoId { get; set; }
         public int AgentId { get; set; }
-        //public string AgentStatus { get; set; }
+        public string AgentStatus { get; set; }
         public DateTime StatusTimestamp { get; set; }
-        public string Duration { get; set; }       
+        public string Duration { get; set; }
+        public string photo { get; set; } 
 
     }
 }
