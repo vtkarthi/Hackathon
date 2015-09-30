@@ -132,7 +132,7 @@ section {
 
 @media (min-width:768px) {
     .v-center {
-        height: 77%;
+        height: 79%;
         overflow: visible;
         margin: auto;
         position: absolute;
@@ -254,7 +254,7 @@ footer .nav>li>a:hover {
 .box-table table tbody td,
 .box-table table tbody tr{
   font-family: 'Vollkorn', serif;
-  font-size:1em;
+  font-size:1.1em;
   border:none;
   padding:1em;
 }
@@ -372,7 +372,7 @@ footer .nav>li>a:hover {
   width: 0;
   display: block;
   overflow: hidden;
-  height: 1em;
+  height: 2em;
   padding:0.5em;
   animation: table_loader 10s infinite ease;
 }
