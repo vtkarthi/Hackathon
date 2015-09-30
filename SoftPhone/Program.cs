@@ -15,8 +15,8 @@ namespace SoftPhone
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Softphone());
+            Application.SetCompatibleTextRenderingDefault(false);            
+            Application.Run(new Caller());            
         }
     }
 }

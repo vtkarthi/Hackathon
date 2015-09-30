@@ -29,27 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Softphone));
-            this.btnHold = new System.Windows.Forms.Button();
+            this.btnHoldCall = new System.Windows.Forms.Button();
             this.lbtnMinimize = new System.Windows.Forms.LinkLabel();
             this.lbtnClose = new System.Windows.Forms.LinkLabel();
             this.lblCustomerNo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbIncomingCall = new System.Windows.Forms.PictureBox();
+            this.btnEndCall = new System.Windows.Forms.Button();
+            this.btnHangOff = new System.Windows.Forms.Button();
+            this._totalElapsedTimeDisplay = new System.Windows.Forms.Label();
+            this._currentElapsedTimeDisplay = new System.Windows.Forms.Label();
+            this.lblOnCallDuration = new System.Windows.Forms.Label();
+            this.lblonHoldDuration = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIncomingCall)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnHold
+            // btnHoldCall
             // 
-            this.btnHold.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHold.BackgroundImage")));
-            this.btnHold.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnHold.FlatAppearance.BorderSize = 0;
-            this.btnHold.Location = new System.Drawing.Point(414, 84);
-            this.btnHold.Name = "btnHold";
-            this.btnHold.Size = new System.Drawing.Size(41, 30);
-            this.btnHold.TabIndex = 0;
-            this.btnHold.UseVisualStyleBackColor = true;
+            this.btnHoldCall.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHoldCall.BackgroundImage")));
+            this.btnHoldCall.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnHoldCall.FlatAppearance.BorderSize = 0;
+            this.btnHoldCall.Location = new System.Drawing.Point(414, 84);
+            this.btnHoldCall.Name = "btnHoldCall";
+            this.btnHoldCall.Size = new System.Drawing.Size(41, 30);
+            this.btnHoldCall.TabIndex = 0;
+            this.btnHoldCall.UseVisualStyleBackColor = true;
+            this.btnHoldCall.Visible = false;
+            this.btnHoldCall.Click += new System.EventHandler(this.btnHoldCall_Click);
             // 
             // lbtnMinimize
             // 
@@ -82,11 +88,11 @@
             // lblCustomerNo
             // 
             this.lblCustomerNo.AutoSize = true;
+            this.lblCustomerNo.ForeColor = System.Drawing.Color.Black;
             this.lblCustomerNo.Location = new System.Drawing.Point(80, 91);
             this.lblCustomerNo.Name = "lblCustomerNo";
-            this.lblCustomerNo.Size = new System.Drawing.Size(61, 13);
+            this.lblCustomerNo.Size = new System.Drawing.Size(0, 13);
             this.lblCustomerNo.TabIndex = 3;
-            this.lblCustomerNo.Text = "                  ";
             // 
             // label2
             // 
@@ -97,36 +103,81 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Logged in Agent: 3240553";
             // 
-            // pictureBox1
+            // pbIncomingCall
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(47, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 31);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pbIncomingCall.Image = ((System.Drawing.Image)(resources.GetObject("pbIncomingCall.Image")));
+            this.pbIncomingCall.Location = new System.Drawing.Point(47, 83);
+            this.pbIncomingCall.Name = "pbIncomingCall";
+            this.pbIncomingCall.Size = new System.Drawing.Size(25, 31);
+            this.pbIncomingCall.TabIndex = 5;
+            this.pbIncomingCall.TabStop = false;
+            this.pbIncomingCall.Visible = false;
             // 
-            // button1
+            // btnEndCall
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Location = new System.Drawing.Point(462, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 29);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEndCall.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEndCall.BackgroundImage")));
+            this.btnEndCall.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEndCall.FlatAppearance.BorderSize = 0;
+            this.btnEndCall.Location = new System.Drawing.Point(462, 84);
+            this.btnEndCall.Name = "btnEndCall";
+            this.btnEndCall.Size = new System.Drawing.Size(41, 29);
+            this.btnEndCall.TabIndex = 6;
+            this.btnEndCall.UseVisualStyleBackColor = true;
+            this.btnEndCall.Visible = false;
+            this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
             // 
-            // button2
+            // btnHangOff
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.Location = new System.Drawing.Point(378, 84);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(29, 30);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHangOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHangOff.BackgroundImage")));
+            this.btnHangOff.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnHangOff.FlatAppearance.BorderSize = 0;
+            this.btnHangOff.Location = new System.Drawing.Point(378, 84);
+            this.btnHangOff.Name = "btnHangOff";
+            this.btnHangOff.Size = new System.Drawing.Size(29, 30);
+            this.btnHangOff.TabIndex = 7;
+            this.btnHangOff.UseVisualStyleBackColor = true;
+            this.btnHangOff.Visible = false;
+            this.btnHangOff.Click += new System.EventHandler(this.btnHangOff_Click);
+            // 
+            // _totalElapsedTimeDisplay
+            // 
+            this._totalElapsedTimeDisplay.AutoSize = true;
+            this._totalElapsedTimeDisplay.Location = new System.Drawing.Point(151, 60);
+            this._totalElapsedTimeDisplay.Name = "_totalElapsedTimeDisplay";
+            this._totalElapsedTimeDisplay.Size = new System.Drawing.Size(49, 13);
+            this._totalElapsedTimeDisplay.TabIndex = 8;
+            this._totalElapsedTimeDisplay.Text = "00:00:00";
+            this._totalElapsedTimeDisplay.Visible = false;
+            // 
+            // _currentElapsedTimeDisplay
+            // 
+            this._currentElapsedTimeDisplay.AutoSize = true;
+            this._currentElapsedTimeDisplay.Location = new System.Drawing.Point(410, 60);
+            this._currentElapsedTimeDisplay.Name = "_currentElapsedTimeDisplay";
+            this._currentElapsedTimeDisplay.Size = new System.Drawing.Size(49, 13);
+            this._currentElapsedTimeDisplay.TabIndex = 9;
+            this._currentElapsedTimeDisplay.Text = "00:00:00";
+            this._currentElapsedTimeDisplay.Visible = false;
+            // 
+            // lblOnCallDuration
+            // 
+            this.lblOnCallDuration.AutoSize = true;
+            this.lblOnCallDuration.Location = new System.Drawing.Point(64, 60);
+            this.lblOnCallDuration.Name = "lblOnCallDuration";
+            this.lblOnCallDuration.Size = new System.Drawing.Size(90, 13);
+            this.lblOnCallDuration.TabIndex = 10;
+            this.lblOnCallDuration.Text = "On Call Duration :";
+            this.lblOnCallDuration.Visible = false;
+            // 
+            // lblonHoldDuration
+            // 
+            this.lblonHoldDuration.AutoSize = true;
+            this.lblonHoldDuration.Location = new System.Drawing.Point(319, 60);
+            this.lblonHoldDuration.Name = "lblonHoldDuration";
+            this.lblonHoldDuration.Size = new System.Drawing.Size(95, 13);
+            this.lblonHoldDuration.TabIndex = 11;
+            this.lblonHoldDuration.Text = "On Hold Duration :";
+            this.lblonHoldDuration.Visible = false;
             // 
             // Softphone
             // 
@@ -134,18 +185,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(585, 179);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblonHoldDuration);
+            this.Controls.Add(this.lblOnCallDuration);
+            this.Controls.Add(this._currentElapsedTimeDisplay);
+            this.Controls.Add(this._totalElapsedTimeDisplay);
+            this.Controls.Add(this.btnHangOff);
+            this.Controls.Add(this.btnEndCall);
+            this.Controls.Add(this.pbIncomingCall);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCustomerNo);
             this.Controls.Add(this.lbtnClose);
             this.Controls.Add(this.lbtnMinimize);
-            this.Controls.Add(this.btnHold);
+            this.Controls.Add(this.btnHoldCall);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Softphone";
             this.Text = "Verizon Softphone";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Softphone_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbIncomingCall)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,14 +209,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnHold;
+        private System.Windows.Forms.Button btnHoldCall;
         private System.Windows.Forms.LinkLabel lbtnMinimize;
         private System.Windows.Forms.LinkLabel lbtnClose;
         private System.Windows.Forms.Label lblCustomerNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pbIncomingCall;
+        private System.Windows.Forms.Button btnEndCall;
+        private System.Windows.Forms.Button btnHangOff;
+        private System.Windows.Forms.Label _totalElapsedTimeDisplay;
+        private System.Windows.Forms.Label _currentElapsedTimeDisplay;
+        private System.Windows.Forms.Label lblOnCallDuration;
+        private System.Windows.Forms.Label lblonHoldDuration;
     }
 }
 
