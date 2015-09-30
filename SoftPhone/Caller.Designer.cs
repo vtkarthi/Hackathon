@@ -55,6 +55,7 @@
             this.txtCustomerNo.Name = "txtCustomerNo";
             this.txtCustomerNo.Size = new System.Drawing.Size(124, 20);
             this.txtCustomerNo.TabIndex = 1;
+            this.txtCustomerNo.Text = "9842700000";
             // 
             // lblCustomerNo
             // 

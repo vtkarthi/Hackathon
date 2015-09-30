@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -96,6 +97,22 @@ namespace SoftPhone
             oSft.Controls["_totalElapsedTimeDisplay"].Visible = false;
             oSft.Controls["lblonHoldDuration"].Visible = false;
             oSft.Controls["_currentElapsedTimeDisplay"].Visible = false;
+
+
+            using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+
+                command.CommandText = "UPDATE AgentRealtimeInfo SET AgentStatus = @AgentStatus, StatusTimestamp = @StatusTimestamp Where CustomerBTN = @CustomerBTN and AgentId = @AgentId and AgentStatus=\"ON HOLD\"";
+
+                command.Parameters.AddWithValue("@CustomerBTN", txtCustomerNo.Text.Split(" ".ToCharArray())[0].Trim());
+                command.Parameters.AddWithValue("@AgentStatus", "HOLD ABANDONED");
+                command.Parameters.AddWithValue("@StatusTimestamp", DateTime.Now);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
 
         }
     }

@@ -88,12 +88,12 @@
             '<td>' + obj.AgentId + '</td>' +
             //'<td>'+obj.last+'</td>'+
             '<td>' + obj.AgentStatus + '</td>';
-            
-            if (parseInt(obj.Duration) < 10)
+            var duc=parseInt((obj.Duration.split('.')[0]).split(':')[(obj.Duration.split('.')[0]).split(':').length-1])
+            if (duc < 10)
                 out_html += '<td>' + obj.Duration + '</td>';
-            else if (parseInt(obj.Duration) < 20)
+            else if (duc < 20)
                 out_html += '<td style="background-color: orange;">' + obj.Duration + '</td>';
-            else if (parseInt(obj.Duration) < 30)
+            else if (duc < 30)
                 out_html += '<td style="background-color: yello;">' + obj.Duration + '</td>';
             else
                 out_html += '<td style="background-color: red;">' + obj.Duration + '</td>';                
@@ -171,7 +171,7 @@
           var self = this;
 
           // loading data before
-          
+          if (dataFn_R.html() == "")
               dataFn_R.html('<span class="loading_table">' +
                           'Loading Please Wait ....' +
                           '</span>');
@@ -219,7 +219,7 @@
               out_html += '</tbody>';
               // render templates
               dataFn_R.html(out_html);
-              
+              var timeoutID = window.setTimeout($.table_of_contacts.report.getJson, 3000);
               // error 
           }).error(function (j, t, e) {
               // render error.

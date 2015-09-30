@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -65,7 +66,23 @@ namespace SoftPhone
                 _timer.Stop();
                 _timerRunning = false;
             }
-           
+
+
+            using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "INSERT INTO AgentRealtimeInfo (AgentId, CustomerBTN, AgentStatus, StatusTimestamp,Status) VALUES (@AgentId, @CustomerBTN, @AgentStatus, @StatusTimestamp,@Status)";
+
+                command.Parameters.AddWithValue("@AgentId", "3240553");
+                command.Parameters.AddWithValue("@CustomerBTN", lblCustomerNo.Text.Split(" ".ToCharArray())[0].Trim());
+                command.Parameters.AddWithValue("@AgentStatus", "ON CALL");
+                command.Parameters.AddWithValue("@StatusTimestamp", DateTime.Now);
+                command.Parameters.AddWithValue("@Status", true);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         void _timer_Tick(object sender, EventArgs e)
@@ -135,6 +152,22 @@ namespace SoftPhone
 
             _timer.Start();
             _timerRunning = true;
+
+
+            using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+
+                command.CommandText = "UPDATE AgentRealtimeInfo SET AgentStatus = @AgentStatus, StatusTimestamp = @StatusTimestamp Where CustomerBTN = @CustomerBTN and AgentId = @AgentId";
+                command.Parameters.AddWithValue("@AgentId", "3240553");
+                command.Parameters.AddWithValue("@CustomerBTN", lblCustomerNo.Text.Split(" ".ToCharArray())[0].Trim());
+                command.Parameters.AddWithValue("@AgentStatus", "ON HOLD");
+                command.Parameters.AddWithValue("@StatusTimestamp", DateTime.Now);               
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
     }
 }

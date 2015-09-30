@@ -79,7 +79,7 @@
 
                                     <!-- Table demo -->
                                     <div class="box-table">
-                                        <table data-fn="contacts" data-url="http://localhost:50984/api/live"></table>
+                                        <table data-fn="contacts" data-url="http://localhost:51052/api/live"></table>
                                     </div>
                                     <hr>
                                 </div>
@@ -109,7 +109,7 @@
                 <div class="text-center img-responsive thumbnail center-block " style="border: 10px solid #ddd;">
                   
                         <div class="" style="color:black;">
-                             <table data-fn="report" data-url="http://localhost:50984/api/all"></table>
+                             <table data-fn="report" data-url="http://localhost:51052/api/all"></table>
                         </div>
                         
                    
