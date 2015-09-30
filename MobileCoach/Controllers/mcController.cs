@@ -11,9 +11,8 @@ namespace VzSoftphone.Controllers
 {
     public class mcController : ApiController
     {
-       
-        [HttpGet]
-        [Route("api/live")]
+       [Route("api/live")]
+        [HttpGet]        
         public IHttpActionResult GetAgents()
         {
 
@@ -38,6 +37,7 @@ namespace VzSoftphone.Controllers
                            DateTime dSt= p.StatusTimestamp = reader.GetDateTime(reader.GetOrdinal("StatusTimestamp"));
                            p.Duration =(DateTime.Now - dSt).ToString();
                            p.photo = "a" + ((++pic % 4)+1) + ".jpg";
+                           p.AgentStatus = reader.GetString(reader.GetOrdinal("AgentStatus"));
                            liCall.Add(p);
                         }
                     }
@@ -51,8 +51,8 @@ namespace VzSoftphone.Controllers
             return Ok(liCall);
         }
 
-        [HttpGet]
         [Route("api/all")]
+        [HttpGet]        
         public IHttpActionResult GetReport()
         {
 

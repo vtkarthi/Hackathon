@@ -50,7 +50,7 @@
     <section class="container-fluid" id="section1">
         <div class="v-center">
             <h1 class="text-center">VZ SoftPhone</h1>
-            <h2 class="text-center lato animate slideInDown">Welcome <b>Mr AgentName</b> </h2>
+            <h2 class="text-center lato animate slideInDown">Welcome <b>Mr Supervisor</b> </h2>
             <p class="text-center">
                 <br>
                 <a href="#" class="btn btn-danger btn-lg btn-huge lato" data-toggle="modal" data-target="#myModal">Agent Status/Reports</a>
@@ -109,7 +109,7 @@
                 <div class="text-center img-responsive thumbnail center-block " style="border: 10px solid #ddd;">
                   
                         <div class="" style="color:black;">
-                             <table data-fn="contacts" data-url="http://localhost:50984/api/all"></table>
+                             <table data-fn="report" data-url="http://localhost:50984/api/all"></table>
                         </div>
                         
                    

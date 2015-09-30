@@ -27,8 +27,10 @@
   var elem,
       // data-fn
       dataFn = $('[data-fn="contacts"]'),
+      dataFn_R = $('[data-fn="report"]'),
       // data-url
-      thisUrl = dataFn.data('url');
+      thisUrl = dataFn.data('url'),
+      thisUrl_R = dataFn_R.data('url');
   //thisUrl = 'http://localhost:50984/api/mc/1';
   
   if (typeof $.table_of_contacts == 'undefined')
@@ -51,7 +53,8 @@
       
       var self = this;
       
-      // loading data before
+        // loading data before
+      if (dataFn.html() == "")
       dataFn.html('<span class="loading_table">'+
                   'Loading Please Wait ....'+
                   '</span>');
@@ -63,18 +66,46 @@
       $.getJSON(thisUrl,function(data){
         
         // load template
-        var out_html = self.tpl(); 
-        
+       // var out_html = self.tpl(); 
+          var out_html = '<thead>' +
+          '<tr>' +
+          '<th>Photo</th>' +
+          '<th>AgentId</th>' +
+         // '<th>Last Name</th>'+    
+          '<th>Status</th>' +
+          '<th>Duration</th>' +
+          //'<th>Web</th>'+
+          '</tr>' +
+          '</thead>' +
+          '<tbody >';
+
         $.each(data,function(i,obj){  
           // load inner template
-          out_html += self.tpl_inner(obj);
+            out_html += '<tr>' +
+            '<td class="user-photo">' +
+            '<img class="user-tumb" src="' + obj.photo + '"/>' +
+            '</td>' +
+            '<td>' + obj.AgentId + '</td>' +
+            //'<td>'+obj.last+'</td>'+
+            '<td>' + obj.AgentStatus + '</td>';
+            
+            if (parseInt(obj.Duration) < 10)
+                out_html += '<td>' + obj.Duration + '</td>';
+            else if (parseInt(obj.Duration) < 20)
+                out_html += '<td style="background-color: orange;">' + obj.Duration + '</td>';
+            else if (parseInt(obj.Duration) < 30)
+                out_html += '<td style="background-color: yello;">' + obj.Duration + '</td>';
+            else
+                out_html += '<td style="background-color: red;">' + obj.Duration + '</td>';                
+           
+            out_html +=  '</tr>';
           
         });
         // close tag
         out_html += '</tbody>';
         // render templates
         dataFn.html(out_html);
-        var timeoutID = window.setTimeout($.table_of_contacts.getJson(), 3000);
+        var timeoutID = window.setTimeout($.table_of_contacts.get.getJson, 3000);
         // error 
       }).error(function(j,t,e){ 
         // render error.
@@ -109,7 +140,7 @@
           '</td>'+
           '<td>' + obj.AgentId + '</td>' +
           //'<td>'+obj.last+'</td>'+
-          '<td>' + obj.StatusTimestamp + '</td>' +
+          '<td>' + obj.AgentStatus + '</td>' +
           '<td>' + obj.Duration + '</td>' +
          // '<td>'+
          // '<a href="'+obj.web+'" title="'+
@@ -125,10 +156,10 @@
   $.table_of_contacts.report = {
 
       init: function () {
-          if (dataFn) {
-              this.getJson(thisUrl);
+          if (dataFn_R) {
+              this.getJson(thisUrl_R);
           } else {
-              dataFn.html('No data found.');
+              dataFn_R.html('No data found.');
           }
       },
 
@@ -139,33 +170,59 @@
           var self = this;
 
           // loading data before
-          dataFn.html('<span class="loading_table">' +
-                      'Loading Please Wait ....' +
-                      '</span>');
+          
+              dataFn_R.html('<span class="loading_table">' +
+                          'Loading Please Wait ....' +
+                          '</span>');
 
           // No ajax cache
           $.ajaxSetup({ cache: false });
 
           // Get json
-          $.getJSON(thisUrl, function (data) {
+          $.getJSON(thisUrl_R, function (data) {
 
               // load template
-              var out_html = self.tpl();
+              var out_html = '<thead>' +
+              '<tr>' +
+              '<th>AgentRealtimeInfoId</th>' +
+              '<th>AgentId</th>' +
+              '<th>Hold Abandon</th>' +
+              '<th>StatusTimestamp</th>' +
+              '</tr>' +
+              '</thead>' +
+              '<tbody >';
 
               $.each(data, function (i, obj) {
                   // load inner template
-                  out_html += self.tpl_inner(obj);
+                  out_html += '<tr>' +
+
+              '<td>' + obj.AgentRealtimeInfoId + '</td>' +
+             '<td>' + obj.AgentId + '</td>';
+                  if (obj.AgentStatus == "AVILABLE")
+                      out_html += '<td style="background-color: GREEN;">' + obj.AgentStatus + '</td>';
+                  else if (obj.AgentStatus == "HOLD")
+                      out_html += '<td style="background-color: YELLOW;">' + obj.AgentStatus + '</td>';
+                  else
+                      out_html += '<td style="background-color: RED;">' + obj.AgentStatus + '</td>';
+
+                  out_html += '<td>' + obj.StatusTimestamp + '</td>' +
+             // '<td>'+
+             // '<a href="'+obj.web+'" title="'+
+             // obj.name + ' ' + obj.last+'">'+
+             // obj.web +
+             // '</td>'+
+              '</tr>';
 
               });
               // close tag
               out_html += '</tbody>';
               // render templates
-              dataFn.html(out_html);
+              dataFn_R.html(out_html);
               
               // error 
           }).error(function (j, t, e) {
               // render error.
-              dataFn.html('<span class="error_table">' +
+              dataFn_R.html('<span class="error_table">' +
                           'Error = ' + e +
                           '</span>');
 
