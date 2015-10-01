@@ -8,3 +8,7 @@ before_install:
   - sudo apt-get install nunit-console
 install:
   - nuget restore SoftPhone.sln
+before_script:
+  - nuget restore solution-name.sln
+after_script:
+  - nunit-console Tests/bin/Release/Tests.dll
