@@ -9,6 +9,6 @@ before_install:
 install:
   - nuget restore SoftPhone.sln
 before_script:
-  - nuget restore solution-name.sln
+  - nuget restore SoftPhone.sln
 after_script:
   - nunit-console Tests/bin/Release/Tests.dll
