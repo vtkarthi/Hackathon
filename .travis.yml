@@ -6,5 +6,8 @@ env:
   - EnableNuGetPackageRestore=true
   
 install:
-  - sudo apt-get install -y gtk-sharp2
   - nuget restore SoftPhone.sln
+  - sudo apt-get install mono-devel mono-gmcs nunit-console
+
+script:
+  - xbuild SoftPhone.sln
