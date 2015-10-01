@@ -8,8 +8,7 @@ before_install:
   - sudo apt-get install nunit-console
 install:
   - nuget restore SoftPhone.sln
-before_script:
-  - nuget restore SoftPhone.sln
-after_script:
+
+script:
+  - xbuild SoftPhone.sln
   - nunit-console MobileCoach.Tests/bin/Debug/MobileCoach.Tests.dll
-  
