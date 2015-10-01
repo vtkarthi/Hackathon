@@ -1,2 +1,8 @@
 language: csharp
 solution: SoftPhone.sln
+
+install:
+  - nuget restore SoftPhone.sln
+  
+script:
+  - xbuild /p:Configuration=Release SoftPhone.sln
