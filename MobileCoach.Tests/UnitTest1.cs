@@ -14,7 +14,7 @@ namespace VzSoftphone.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            //string expectedResult = "Today is the wonderful day of my life";
+            //string expectedResult = "Today is the wonderful day of my life"; 
             //string[] actualStringArray = new string[] { "Today", "is", "the", "wonderful", "day", "of", "my", "life" };
             Controllers.mcController appObject = new Controllers.mcController();
 
