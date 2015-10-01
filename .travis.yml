@@ -4,7 +4,7 @@ solution: SoftPhone.sln
 env:
  global:
   - EnableNuGetPackageRestore=true
-  
-install:
+before_install:
   - sudo apt-get install nunit-console
+install:
   - nuget restore SoftPhone.sln
