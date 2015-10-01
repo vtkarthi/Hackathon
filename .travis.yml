@@ -1,9 +1,2 @@
-language: c
+language: csharp
 solution: SoftPhone.sln
-
-install:
-  - sudo apt-get install mono-devel mono-gmcs nunit-console
- 
-script:
-  - xbuild SoftPhone.sln
-
