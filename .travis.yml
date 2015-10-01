@@ -11,4 +11,5 @@ install:
 before_script:
   - nuget restore SoftPhone.sln
 after_script:
-  - nunit-console Tests/bin/Release/Tests.dll
+  - nunit-console MobileCoach.Tests/bin/Debug/MobileCoach.Tests.dll
+  
