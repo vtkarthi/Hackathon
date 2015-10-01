@@ -8,7 +8,9 @@ before_install:
   - sudo apt-get install nunit-console
 install:
   - nuget restore SoftPhone.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 
 script:
   - xbuild SoftPhone.sln
   - nunit-console MobileCoach.Tests/bin/Debug/MobileCoach.Tests.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe MobileCoach.Tests/bin/Debug/MobileCoach.Tests.dll
