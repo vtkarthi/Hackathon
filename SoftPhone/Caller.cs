@@ -77,43 +77,48 @@ namespace SoftPhone
 
         private void btnEndCall_Click(object sender, EventArgs e)
         {
-            _totalElapsedTimeDisplay.Visible = false;
-            lblCallDuration.Visible = false;
-            _startTime = DateTime.Now;
-            
-            _timer.Stop();
-            _currentElapsedTime = TimeSpan.Zero;
-            _totalElapsedTime = TimeSpan.Zero;
-            _timerRunning = false;
-
-            btnEndCall.Visible = false;
-            btnMakeCall.Visible = true;
-
-            oSft.Controls["lblCustomerNo"].Text = txtCustomerNo.Text + " Disconnected..";
-            oSft.Controls["btnHoldCall"].Visible = false;
-            oSft.Controls["btnEndCall"].Visible = false;
-
-            oSft.Controls["lblOnCallDuration"].Visible = false;
-            oSft.Controls["_totalElapsedTimeDisplay"].Visible = false;
-            oSft.Controls["lblonHoldDuration"].Visible = false;
-            oSft.Controls["_currentElapsedTimeDisplay"].Visible = false;
-
-
-            using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
-            using (SqlCommand command = connection.CreateCommand())
+            try
             {
+                _totalElapsedTimeDisplay.Visible = false;
+                lblCallDuration.Visible = false;
+                _startTime = DateTime.Now;
 
-                command.CommandText = "UPDATE AgentRealtimeInfo SET AgentStatus = @AgentStatus, StatusTimestamp = @StatusTimestamp Where CustomerBTN = @CustomerBTN and AgentId = @AgentId and AgentStatus=\"ON HOLD\"";
+                _timer.Stop();
+                _currentElapsedTime = TimeSpan.Zero;
+                _totalElapsedTime = TimeSpan.Zero;
+                _timerRunning = false;
 
-                command.Parameters.AddWithValue("@CustomerBTN", txtCustomerNo.Text.Split(" ".ToCharArray())[0].Trim());
-                command.Parameters.AddWithValue("@AgentStatus", "HOLD ABANDONED");
-                command.Parameters.AddWithValue("@StatusTimestamp", DateTime.Now);
+                btnEndCall.Visible = false;
+                btnMakeCall.Visible = true;
 
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+                oSft.Controls["lblCustomerNo"].Text = txtCustomerNo.Text + " Disconnected..";
+                oSft.Controls["btnHoldCall"].Visible = false;
+                oSft.Controls["btnEndCall"].Visible = false;
+
+                oSft.Controls["lblOnCallDuration"].Visible = false;
+                oSft.Controls["_totalElapsedTimeDisplay"].Visible = false;
+                oSft.Controls["lblonHoldDuration"].Visible = false;
+                oSft.Controls["_currentElapsedTimeDisplay"].Visible = false;
+
+
+                using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
+                using (SqlCommand command = connection.CreateCommand())
+                {
+
+                    command.CommandText = "UPDATE AgentRealtimeInfo SET AgentStatus = @AgentStatus, StatusTimestamp = @StatusTimestamp Where CustomerBTN = @CustomerBTN and AgentId = @AgentId and AgentStatus=\"ON HOLD\"";
+
+                    command.Parameters.AddWithValue("@CustomerBTN", txtCustomerNo.Text.Split(" ".ToCharArray())[0].Trim());
+                    command.Parameters.AddWithValue("@AgentStatus", "HOLD ABANDONED");
+                    command.Parameters.AddWithValue("@StatusTimestamp", DateTime.Now);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
-
+            catch(Exception ex)
+            {
+            }
         }
     }
 }
