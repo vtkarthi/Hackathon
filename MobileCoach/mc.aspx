@@ -109,7 +109,7 @@
                 <div class="text-center img-responsive thumbnail center-block " style="border: 10px solid #ddd;">
                   
                         <div class="" style="color:black;">
-                             <table data-fn="report" data-url="http://localhost:51052/api/all"></table>
+                             <table data-fn="report" style="width:100%" data-url="http://localhost:51052/api/all"></table>
                         </div>
                         
                    

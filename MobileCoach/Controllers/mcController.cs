@@ -64,7 +64,7 @@ namespace VzSoftphone.Controllers
 
             List<call> liCall = new List<call>();
             using (SqlConnection connection = new SqlConnection("Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework"))
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM AgentRealtimeInfo", connection))
+            using (SqlCommand cmd = new SqlCommand("SELECT count(*) as count,AgentStatus  FROM AgentRealtimeInfo group by AgentStatus", connection))
             {
                 connection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -78,11 +78,11 @@ namespace VzSoftphone.Controllers
                         {
                             call p = new call();
                             // To avoid unexpected bugs access columns by name.
-                            p.AgentRealtimeInfoId = reader.GetInt32(reader.GetOrdinal("AgentRealtimeInfoId"));
-                            p.AgentId = reader.GetInt32(reader.GetOrdinal("AgentId"));
+                            p.AgentRealtimeInfoId = pic++;
+                            p.AgentId = reader.GetInt32(reader.GetOrdinal("count"));
                             p.AgentStatus = reader.GetString(reader.GetOrdinal("AgentStatus"));
 
-                            p.StatusTimestamp = reader.GetDateTime(reader.GetOrdinal("StatusTimestamp"));
+                            //p.StatusTimestamp = reader.GetDateTime(reader.GetOrdinal("StatusTimestamp"));
 
                             liCall.Add(p);
                         }

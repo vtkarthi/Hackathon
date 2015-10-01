@@ -185,10 +185,10 @@
               // load template
               var out_html = '<thead>' +
               '<tr>' +
-              '<th>AgentRealtimeInfoId</th>' +
-              '<th>AgentId</th>' +
-              '<th>Hold Abandon</th>' +
-              '<th>StatusTimestamp</th>' +
+              '<th>S.NO</th>' +
+              '<th>Agent Status</th>' +
+              '<th>Count</th>' +
+             // '<th>StatusTimestamp</th>' +
               '</tr>' +
               '</thead>' +
               '<tbody >';
@@ -197,16 +197,16 @@
                   // load inner template
                   out_html += '<tr>' +
 
-              '<td>' + obj.AgentRealtimeInfoId + '</td>' +
-             '<td>' + obj.AgentId + '</td>';
-                  if (obj.AgentStatus == "AVILABLE")
-                      out_html += '<td style="background-color: GREEN;">' + obj.AgentStatus + '</td>';
-                  else if (obj.AgentStatus == "HOLD")
+              '<td>' + obj.AgentRealtimeInfoId + '</td>';
+            // '<td>' + obj.AgentId + '</td>';
+                  if (obj.AgentStatus == "HOLD ABANDONED")
+                      out_html += '<td style="background-color: RED;">' + obj.AgentStatus + '</td>';
+                  else if (obj.AgentStatus == "ON HOLD")
                       out_html += '<td style="background-color: YELLOW;">' + obj.AgentStatus + '</td>';
                   else
-                      out_html += '<td style="background-color: RED;">' + obj.AgentStatus + '</td>';
+                      out_html += '<td style="background-color:GREEN;">' + obj.AgentStatus + '</td>';
 
-                  out_html += '<td>' + obj.StatusTimestamp + '</td>' +
+                  out_html += '<td>' + obj.AgentId + '</td>' +
              // '<td>'+
              // '<a href="'+obj.web+'" title="'+
              // obj.name + ' ' + obj.last+'">'+
