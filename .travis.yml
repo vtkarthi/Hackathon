@@ -1,5 +1,10 @@
 language: csharp
 solution: SoftPhone.sln
+
+env:
+ global:
+  - EnableNuGetPackageRestore=true
+  
 install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore SoftPhone.sln
