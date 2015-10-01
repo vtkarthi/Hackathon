@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPhone", "SoftPhone\Soft
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VzSoftphone", "MobileCoach\VzSoftphone.csproj", "{E4A3C0F8-2733-4941-B614-2DD25A986F80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VzSoftphone.Tests", "MobileCoach.Tests\VzSoftphone.Tests.csproj", "{D7DAD405-A435-4B6F-8772-596C13AA8185}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4A3C0F8-2733-4941-B614-2DD25A986F80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7DAD405-A435-4B6F-8772-596C13AA8185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
