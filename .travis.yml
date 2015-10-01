@@ -7,3 +7,4 @@ env:
   
 install:
   - nuget restore SoftPhone.sln
+install: make install
