@@ -29,8 +29,8 @@ namespace VzSoftphone.Tests
             //string[] actualStringArray = new string[] { "Today", "is", "the", "wonderful", "day", "of", "my", "life" };
             Controllers.mcController appObject = new Controllers.mcController();
 
-            IHttpActionResult actualResult = appObject.GetAgents();
-            var contentResult = actualResult as OkNegotiatedContentResult<List<call>>;
+            //IHttpActionResult actualResult = appObject.GetAgents();
+            //var contentResult = actualResult as OkNegotiatedContentResult<List<call>>;
 
             // Assert
             //Assert.IsNotNull(contentResult);
