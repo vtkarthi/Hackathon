@@ -6,16 +6,13 @@ using System.Web.Http.Results;
 using System.Collections.Generic;
 using VzSoftphone.Models;
 using NUnit;
-#if NUNIT
 using TestClass = NUnit.Framework.TestFixtureAttribute;
 using TestMethod = NUnit.Framework.TestAttribute;
 using TestCleanup = NUnit.Framework.TearDownAttribute;
 using TestInitialize = NUnit.Framework.SetUpAttribute;
 using ClassCleanup = NUnit.Framework.TestFixtureTearDownAttribute;
 using ClassInitialize = NUnit.Framework.TestFixtureSetUpAttribute;
-#else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-#endif
+
 
 using NUnitAssert = NUnit.Framework.Assert;
 using MsAssert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
@@ -38,7 +35,7 @@ namespace VzSoftphone.Tests
             // Assert
             //Assert.IsNotNull(contentResult);
             //Assert.IsNotNull(contentResult.Content);
-            Assert.IsNotNull(null);
+            NUnitAssert.IsNotNull(null);
             
 
 
