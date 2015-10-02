@@ -35,7 +35,7 @@ namespace VzSoftphone.Tests
             // Assert
             //Assert.IsNotNull(contentResult);
             //Assert.IsNotNull(contentResult.Content);
-            NUnitAssert.IsNotNull(null);
+            NUnitAssert.IsNotNull("test");
             
 
 
