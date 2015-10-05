@@ -29,13 +29,13 @@ namespace VzSoftphone.Tests
             //string[] actualStringArray = new string[] { "Today", "is", "the", "wonderful", "day", "of", "my", "life" };
             Controllers.mcController appObject = new Controllers.mcController();
 
-            //IHttpActionResult actualResult = appObject.GetAgents();
-            //var contentResult = actualResult as OkNegotiatedContentResult<List<call>>;
+            IHttpActionResult actualResult = appObject.GetAgents();
+            var contentResult = actualResult as OkNegotiatedContentResult<List<call>>;
 
             // Assert
-            //Assert.IsNotNull(contentResult);
-            //Assert.IsNotNull(contentResult.Content);
-            NUnitAssert.IsNotNull("test");
+            NUnitAssert.IsNotNull(contentResult);
+            NUnitAssert.IsNotNull(contentResult.Content);
+            //NUnitAssert.IsNotNull(null);
             
 
 
