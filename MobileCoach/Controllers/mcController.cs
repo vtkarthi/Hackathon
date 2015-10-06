@@ -19,7 +19,7 @@ namespace VzSoftphone.Controllers
        [Route("api/live")]
         [HttpGet]        
         public IHttpActionResult GetAgents()
-        {
+        { 
 
             //string con = "Data Source=113.128.163.79,1433;Network Library=DBMSSOCN;Initial Catalog=CallEvents;User ID=sa;Password=Admin123;";
            //string con = "Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework";
