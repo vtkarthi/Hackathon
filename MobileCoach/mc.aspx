@@ -79,7 +79,7 @@
 
                                     <!-- Table demo -->
                                     <div class="box-table">
-                                        <table data-fn="contacts" data-url="call.json"></table>
+                                        <table data-fn="contacts" data-url="http://localhost:51052/api/live"></table>
                                     </div>
                                     <hr>
                                 </div>
