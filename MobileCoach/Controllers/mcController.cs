@@ -23,7 +23,7 @@ namespace VzSoftphone.Controllers
 
             //string con = "Data Source=113.128.163.79,1433;Network Library=DBMSSOCN;Initial Catalog=CallEvents;User ID=sa;Password=Admin123;";
            //string con = "Data Source=SCSBWIN-398215;Initial Catalog=CallEvents;Persist Security Info=True;User ID=sa;Password=Admin123;MultipleActiveResultSets=True;Application Name=EntityFramework";
-           string con = "Data Source=(LocalDB)\v11.0;AttachDbFilename=..\\SoftPhone\\Database1.mdf;Integrated Security=True";
+           string con = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\\Users\\Administrator\\Source\\Repos\\Hackathon\\MobileCoach\\App_Data\\call.mdf;Integrated Security=True";
             List<call> liCall = new List<call>();
             using (SqlConnection connection = new SqlConnection(con))
             using (SqlCommand cmd = new SqlCommand("SELECT * FROM AgentRealtimeInfo", connection))
