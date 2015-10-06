@@ -49,7 +49,7 @@
 
     <section class="container-fluid" id="section1">
         <div class="v-center">
-            <h1 class="text-center">VZ SoftPhone</h1>
+            <h1 class="text-center">VZ SoftPhone-Demo</h1>
             <h2 class="text-center lato animate slideInDown">Welcome <b>Mr Supervisor</b> </h2>
             <p class="text-center">
                 <br>
