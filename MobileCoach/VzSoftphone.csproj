@@ -87,17 +87,6 @@
     <Content Include="a2.jpg" />
     <Content Include="a3.jpg" />
     <Content Include="a4.jpg" />
-    <Content Include="App_Data\call.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\call_log.ldf">
-      <DependentUpon>call.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CallInfo.mdf" />
-    <Content Include="CallInfo_log.ldf">
-      <DependentUpon>CallInfo.mdf</DependentUpon>
-    </Content>
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\style.css" />
@@ -140,7 +129,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
